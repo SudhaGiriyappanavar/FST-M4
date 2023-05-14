@@ -1,0 +1,4 @@
+CREATE TABLE episodeV (Name STRING , Line STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' TBLPROPERTIES("skip.header.line.count"="2");
+LOAD DATA INPATH '/user/sudhapg/inputs/episodeV_dialouges.txt' INTO TABLE episodeV;
+SELECT Name, COUNT(Name) AS no_of_lines FROM episodeV GROUP BY Name ORDER BY no_of_lines DESC;
